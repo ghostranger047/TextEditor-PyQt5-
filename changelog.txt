@@ -1,0 +1,6 @@
+*Added Comments
+*The Main editor and the Font window now appears on the center of the screen
+*The Font window now closes on clicking 'Apply'
+*Font Window now the saves the previously applied properties
+*New .fontdata file is generated with default values on restart
+
