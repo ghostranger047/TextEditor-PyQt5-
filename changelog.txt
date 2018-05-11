@@ -3,4 +3,5 @@
 *The Font window now closes on clicking 'Apply'
 *Font Window now the saves the previously applied properties
 *New .fontdata file is generated with default values on restart
-
+*Added Shortcuts
+*Fixed last character not appearing while opening

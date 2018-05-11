@@ -35,12 +35,15 @@ class Ui_MainWindow(object):
         MainWindow.setMenuBar(self.menubar)
         self.actionOpen = QtWidgets.QAction(MainWindow)
         self.actionOpen.setObjectName("actionOpen")
-        
+        self.actionOpen.setShortcut('Ctrl+o')
+
         self.actionSave_as = QtWidgets.QAction(MainWindow)
         self.actionSave_as.setObjectName("actionSave_as")
-        
+        self.actionSave_as.setShortcut('Ctrl+Shift+s')
+
         self.actionSave = QtWidgets.QAction(MainWindow)
         self.actionSave.setObjectName("actionSave")
+        self.actionSave.setShortcut('Ctrl+s')
         
         self.actionExit = QtWidgets.QAction(MainWindow)
         self.actionExit.setObjectName("actionExit")
@@ -48,6 +51,7 @@ class Ui_MainWindow(object):
 
         self.actionEditFonts = QtWidgets.QAction(MainWindow)
         self.actionEditFonts.setObjectName("actionEditFonts")
+        self.actionEditFonts.setShortcut('Ctrl+e')
         #self.actionEditFonts.triggered.connect(self.fontWindow)
         self.menuFile.addAction(self.actionOpen)
         self.menuFile.addAction(self.actionSave_as)

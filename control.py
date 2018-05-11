@@ -41,13 +41,17 @@ class Control(QtWidgets.QMainWindow, Ui_MainWindow):
 
 
     def openFile(self):
-
+        
         options = QtWidgets.QFileDialog.Options()
         loc, _ = QtWidgets.QFileDialog.getOpenFileName(None,"QFileDialog.getOpenFileName()", "","All Files (*);;Python Files (*.py)", options=options)
+        if not(loc == ''):
+            self.plainTextEdit.clear()
+
         with open(loc , 'r') as f:
-            lines = f.readlines()
+            lines = f.read().splitlines()
         for str in lines:
-            self.plainTextEdit.appendPlainText(str[:-2])
+            self.plainTextEdit.appendPlainText(str)
+        f.close()
 
 
 
