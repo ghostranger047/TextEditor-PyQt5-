@@ -43,15 +43,14 @@ class Control(QtWidgets.QMainWindow, Ui_MainWindow):
     def openFile(self):
         
         options = QtWidgets.QFileDialog.Options()
-        loc, _ = QtWidgets.QFileDialog.getOpenFileName(None,"QFileDialog.getOpenFileName()", "","All Files (*);;Python Files (*.py)", options=options)
+        loc, _ = QtWidgets.QFileDialog.getOpenFileName(None,"Open File", "","All Files (*);;Python Files (*.py)", options=options)
         if not(loc == ''):
             self.plainTextEdit.clear()
-
-        with open(loc , 'r') as f:
-            lines = f.read().splitlines()
-        for str in lines:
-            self.plainTextEdit.appendPlainText(str)
-        f.close()
+            with open(loc , 'r') as f:
+                lines = f.read().splitlines()
+            for str in lines:
+                self.plainTextEdit.appendPlainText(str)
+            f.close()
 
 
 
@@ -59,13 +58,14 @@ class Control(QtWidgets.QMainWindow, Ui_MainWindow):
 
         #Save as Function
         options = QtWidgets.QFileDialog.Options()
-        loc, _ = QtWidgets.QFileDialog.getSaveFileName(None,"QFileDialog.getOpenFileName()", "","All Files (*);;Python Files (*.py)", options=options)
+        loc, _ = QtWidgets.QFileDialog.getSaveFileName(None,"Save File", "","All Files (*);;Python Files (*.py)", options=options)
         self.saveloc = loc
         lines = self.plainTextEdit.toPlainText()
-        with open(loc, 'w') as data:
-            for str in lines:
-                data.write(str)
-        data.close()
+        if not loc == '':
+            with open(loc, 'w') as data:
+                for str in lines:
+                    data.write(str)
+            data.close()
 
 
     def save(self):
